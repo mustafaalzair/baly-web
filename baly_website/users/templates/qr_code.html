@@ -1,0 +1,32 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Andreas Remdt" />
+    <meta name="description" content="This is a solution to the QR code component challenge on Frontend Mentor" />
+
+    <title>Frontend Mentor | QR code component</title>
+
+   
+    <link rel="stylesheet" href="{% static "templates_qr/styles.css" %}" />
+  </head>
+  <body>
+    <main>
+      {% if qr_code %}
+      <div>
+          <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+      </div>
+  {% else %}
+      <p>QR Code not available.</p>
+  {% endif %}
+      <h1></h1>
+      <h3 >اظهر الرمز الخاص بك لمزود الخدمه لتحصل على الخصم الخاص بك</h3>
+      <span>
+        <a  style='font-size:16px'href="{% url "baly:home" %}" class="btn btn-outline-primary smoothscroll"> العودة الى الصفحة الرئيسية  </a>
+    </span>
+    </main>
+  </body>
+</html>

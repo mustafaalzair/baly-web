@@ -1,0 +1,169 @@
+
+{% load static%}
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Vertical Layouts - Forms | Materio - Bootstrap Material Design Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/fonts/materialdesignicons.css" %}" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/node-waves/node-waves.css" %}" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/css/core.css" %}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/css/theme-default.css" %}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/css/demo.css" %}" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" %}" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="{% static "templates_admin/assets/vendor/js/helpers.js" %}"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{% static "templates_admin/assets/js/config.js" %}"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    
+        <!-- Menu -->
+
+        
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            
+
+              <!-- Basic Layout -->
+              <div class="row">
+                <div class="col-xl">
+                  <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">{{vendor.vendor}}</h5>
+                      <small class="text-muted float-end">Baly</small>
+                    </div>
+                    <div class="card-body">
+                      <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="text" class="form-control" id="vendor_name" name="vendor_name" placeholder="اسم مزود الخدمة" value="{{ vendor.vendor }}" readonly />
+                            <label for="vendor_name">اسم مزود الخدمة</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="text" class="form-control" id="vendor_phone" name="vendor_phone" placeholder="رقم هاتف مزود الخدمة" value="{{ vendor.phone_number }}" readonly />
+                            <label for="vendor_phone">رقم هاتف مزود الخدمه</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="text" class="form-control" id="driver_name" name="driver_name" placeholder="اسم الكابتن" value="{{ driver.full_name }}" readonly />
+                            <label for="driver_name">اسم الكابتن</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="hidden" class="form-control" id="driver_phone" name="driver_phone" placeholder="رقم الكابتن" value="{{ driver.phone_number }}" readonly />
+                            <label for="driver_phone"></label>
+                        </div>
+                        <!-- يمكنك إضافة المزيد من الحقول هنا بنفس الطريقة -->
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="text" class="form-control" id="car" name="car" placeholder=" نوع السيارة" value="{{ driver.car }}" readonly />
+                            <label for="car">  نوع السيارة</label>
+                        </div>
+                        <!-- يمكنك إضافة المزيد من الحقول هنا بنفس الطريقة -->
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="text" class="form-control" id="car_color" name="car_color" placeholder="لون السيارة الكابتن" value="{{ driver.color_car }}" readonly />
+                            <label for="car_color">لون السيارة</label>
+                        </div>
+                        <!-- يمكنك إضافة المزيد من الحقول هنا بنفس الطريقة -->
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="text" class="form-control" id="plate_number" name="plate_number" placeholder="رقم سيارةالكابتن" value="{{ driver.plate_number }}" readonly />
+                            <label for="plate_number">رقم سيارة الكابتن</label>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="text" class="form-control" id="rating" name="rating" placeholder="تقييم الكابتن " value="{{ driver.rating }}" readonly />
+                            <label for="rating">تقييم الكابتن  </label>
+                        </div>
+                      
+                        <div class="form-floating form-floating-outline mb-4">
+                            <input type="number" class="form-control" id="discount" name="discount" placeholder="على سبيل المثال 20000"   />
+                            <label for="discount">قيمة الخصم النهائي</label>
+                        </div>
+                        <!-- يمكنك إضافة المزيد من الحقول هنا بنفس الطريقة -->
+                        <div class="form-floating form-floating-outline mb-4">
+                            <textarea id="message" name="message" class="form-control" placeholder="اذكر هنا مشتريات الكابتن وماهو قيمه الخصم النهائي " style="height: 60px"></textarea>
+                            <label for="message">مشريات الكابتن</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">حفظ</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+            <!-- / Content -->
+
+            
+
+            
+
+      <!-- Overlay -->
+    </div>
+    
+    <!-- / Layout wrapper -->
+
+    
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{% static "templates_admin/assets/vendor/libs/jquery/jquery.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/popper/popper.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/js/bootstrap.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/node-waves/node-waves.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/js/menu.js" %}"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="{% static "templates_admin/assets/js/main.js" %}"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>

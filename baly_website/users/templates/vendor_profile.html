@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
+    body {
+        background: #eceff1;
+    }
+    .card {
+        background-color: #eceff1;
+        border-radius: 30px;
+        text-align: center;
+        padding: 15px;
+        max-width: 470px;
+        max-height: 90%;
+        margin: 100px auto;
+        box-shadow: 20px 20px 20px #d1d6d9, -20px -20px 20px #ffffff;
+    }
+    .card .ilustration {
+        margin: 30px;
+    }
+    .card .ilustration lottie-player {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+        box-shadow: 20px 20px 20px #d1d6d9, -20px -20px 20px #ffffff;
+    }
+    .card h3 {
+        font-family: "Fredoka", sans-serif;
+        font-size: 2rem;
+        line-height: 2.2rem;
+        color: #595e61;
+        font-weight: bold;
+        margin: 30px 0;
+    }
+    .card p {
+        font-family: "Fredoka", sans-serif;
+        font-size: 1rem;
+        line-height: 1.3rem;
+        color: 0A210F;
+        margin: 10px auto;
+        max-width: 80%;
+    }
+    .card button {
+        font-family: "Fredoka", sans-serif;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 15px 80px;
+        border-radius: 25px;
+        color: white;
+        border: 0;
+        margin: 10px 0;
+        outline: none;
+        background-color: #0000D2;
+        box-shadow: 10px 10px 10px rgba(0, 0, 210, 0.2), -10px -10px 10px rgba(0, 0, 210, 0.2);
+        transition: ease all 0.3s;
+        cursor: pointer;
+    }
+    .card button:hover {
+        box-shadow: 20px 20px 20px rgba(0, 0, 210, 0.1), -20px -20px 20px rgba(0, 0, 210, 0.1);
+        transform: translateY(-3px);
+    }
+    .card button:active {
+        transform: scale(0.9);
+        box-shadow: inset -1px -1px 3px rgba(0, 0, 210, 0.3), -20px -20px 20px rgba(0, 0, 210, 0);
+    }
+</style>
+
+  
+
+  <title>كابتن بَلي</title>
+</head>
+
+<body >
+  
+  <div class="card">
+    <div class="ilustration">
+        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_LrcfNr.json" background="white" speed="1" loop autoplay></lottie-player>
+    </div>
+    <h1>{{vendor.vendor}}</h1>
+    <p style='font-weight:bold;color:#0000D2'>مرحبا بكم في شركة بَلي  </p>
+    <p style='font-weight:bold;color:#0000D2'> تتطلع  شركة بَلي لتوفير افظل خدمات لوكلائها </p>
+    <h3 style='font-weight:bold;'> الخدمات والفئات الخاصة بـ {{vendor.vendor}}</h3>
+    <p style='font-weight:bold'> {{vendor.description|linebreaksbr}} </p>
+   <a href="{% url 'contact:contact' %}"> <button > تواصل مع مركز الدعم </button>  </a> 
+   <a href="{% url "users:Terms_and_conditions" vendor.id %}"> <button > الشروط والاحكام  </button>  </a> 
+   
+</div>
+
+
+</body>
+</html>

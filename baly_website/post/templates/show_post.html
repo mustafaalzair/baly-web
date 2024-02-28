@@ -1,0 +1,196 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+<link rel="stylesheet" href="{% static "templates_4/style.css" %}">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static "templates_1/css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "templates_1/css/owl.carousel.min.css" %}">
+  <link rel="stylesheet" href="{% static "templates_1/css/owl.theme.default.min.css" %}">
+  <link rel="stylesheet" href="{% static "templates_1/css/jquery.fancybox.min.css" %}">
+  <link rel="stylesheet" href="{% static "templates_1/fonts/icomoon/style.css" %}">
+  <link rel="stylesheet" href="{% static "templates_1/fonts/flaticon/font/flaticon.css" %}">
+  <link rel="stylesheet" href="{% static "templates_1/css/aos.css" %}">
+  <link rel="stylesheet" href="{% static "templates_1/css/style.css" %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-PuKqk5T4Ee4zQJf0YjQy/4XhX4h7b+XhHH7A6y1zOZwXaGyZU2ZMfC4X3C9G7C0Zt8jS7jz/3GZsWwQ2iWyn1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+
+  
+  <title>Landing Free HTML Template by Untree.co</title>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
+
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icofont-close js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <nav class="site-nav dark js-site-navbar mb-5 site-navbar-target" style="background:#0000FE;height:80px;">
+    <div class="container">
+        <div class="site-navigation" style="direction: rtl; text-align: right;">
+            <a href="index.html" class="logo m-0 float-right">
+              {% for i in logo  %}
+                <img src="{{i.image.url}}" style="width: 100%; height: 40px;" alt="Image" class="img-fluid">
+                <span class="text-primary"></span>
+                {% endfor %}
+            </a>
+           
+            <ul class="js-clone-nav d-none d-lg-inline-block site-menu float-rig">
+                <li class="active"><a href="#home-section" class="nav-link" style="color: #ffffff; font-weight: bold; font-size: 22px;">الصفحة الرئيسية</a></li>
+                <li><a href="#offer-section" class="nav-link" style="color: #ffffff; font-weight: bold; font-size: 22px;">عروض بَلي</a></li>
+                <li><a href="#directions-section" class="nav-link" style="color: #ffffff; font-weight: bold; font-size: 22px;">فديوات تعليمية</a></li>
+                <li><a href="#about-section" class="nav-link" style="color: #ffffff; font-weight: bold; font-size: 22px;">عن بَلي</a></li>
+                <li><a href="#Competitions-section" class="nav-link" style="color: #ffffff; font-weight: bold; font-size: 22px;">مسابقات وجوائز</a></li>
+            </ul>
+            <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block dark d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                <span></span>
+            </a>
+        </div>
+    </div>
+  </nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="untree_co-section" id="about-section">
+  <div class="container"style="text-align:right">
+    
+      <div class="row text-right ">
+      <div class="col-lg-4"style='direction:rtl;'> 
+        <h1 class="heading mb-4" data-aos="fade-up" data-aos-delay="100">{{posts.post}}</h1>
+        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+          <h4>{{posts.description|linebreaksbr}}</h4>  
+          <span style='font-size:18px'class="caption" data-aos="fade-up" data-aos-delay="0">{{posts.city}}</span>
+          <br><br>
+      
+       
+                
+        </div> <!-- /.mb-4 -->
+        
+      </div>
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="400">
+        <img src="{{posts.image.url}}" alt="Image" class="img-fluid img-shadow" style="width: 100%; height: 75%;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.50);">
+      </div> <!-- /.col-md-4 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</div> <!-- /.untree_co-section -->
+
+
+  <!-- Start posts-entry -->
+  <section class="section posts-entry posts-entry-sm bg-light">
+    <div class="container">
+      <div class="row mb-4">
+        <div style="font-size:28px;color:#0000FE;text-align:right;margin:10px;font-weight:bolder"class="col-12 text-uppercase text-black"><a href="{% url "users:all_vendors" %}">  <h3>شاهد جميع عروض وخصومات بَلي</h3>  </a> </div>
+      </div>
+     
+      <div class="row">
+        {% for post in last_four_posts %}
+        <div class="col-md-6 mb-4 mb-lg-0 col-lg-4"  data-aos="fade-up" data-aos-delay="0"  >
+          <div class="news-item">
+            <div class="vcard d-flex align-items-center mb-4">
+              <div  >
+                <img src="{{post.image.url}}" style='height:291px;width:500px' alt="Image" class="img-fluid">
+              </div>
+            </div>
+            <div class="news-contents mb-4"style='height:100px'>
+
+              <h3 style='font-weight:bold;text-align:right'><a href="{% url "baly:showpost" post.id %}">{{post.post}}</a></h3>
+              <p style='font-weight:bold;text-align:right'>{{post.subtitle}}</p>  
+              
+           
+            </div>
+            <p class="mb-0"><a href="{% url "baly:showpost" post.id %}" class="read-more-arrow">
+              <svg class="bi bi-arrow-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"/>
+                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"/>
+              </svg>
+            </a></p>
+          </div> <!-- /.news-item -->
+        </div>
+
+        {% endfor %}
+        
+      </div>
+    </div>
+  </section>
+  <!-- End posts-entry -->
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+         
+
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+     
+
+           
+        </div>
+      </div> <!-- /.container -->
+    </footer> <!-- /.site-footer -->
+
+
+  
+    <script>
+      function copyValue(value) {
+        // إنشاء عنصر input
+        var inputElement = document.createElement('input');
+        inputElement.setAttribute('value', value);
+        document.body.appendChild(inputElement);
+      
+        // نسخ القيمة
+        inputElement.select();
+        document.execCommand('copy');
+      
+        // إزالة العنصر المؤقت
+        document.body.removeChild(inputElement);
+      
+        // تعديل نص الرابط لإظهار أن القيمة تمت نسخها
+        document.getElementById('copyLink').innerText = 'تم النسخ!';
+      }
+      </script>
+      
+      </script>
+    <script src="{% static "templates_3/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "templates_3/js/tiny-slider.js" %}"></script>
+
+    <script src="{% static "templates_3/js/flatpickr.min.js" %}"></script>
+
+
+    <script src="{% static "templates_3/js/aos.js" %}"></script>
+    <script src="{% static "templates_3/js/glightbox.min.js" %}"></script>
+    <script src="{% static "templates_3/js/navbar.js" %}"></script>
+    <script src="{% static "templates_3/js/counter.js" %}"></script>
+    <script src="{% static "templates_3/js/custom.js" %}"></script>
+
+    
+  </body>
+  </html>

@@ -1,0 +1,282 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Dashboard - Analytics | Materio - Bootstrap Material Design Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/fonts/materialdesignicons.css" %}" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/node-waves/node-waves.css" %}" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/css/core.css" %}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/css/theme-default.css" %}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/css/demo.css" %}" />
+   
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" %}" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/apex-charts/apex-charts.css" %}" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="{% static "templates_admin/assets/vendor/js/helpers.js" %}"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{% static "templates_admin/assets/js/config.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "templates_table/style.css" %}">
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div  class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link">
+              
+              <span class="app-brand-text demo menu-text fw-semibold ms-2">Baly captain</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+              <i class="mdi menu-toggle-icon d-xl-block align-middle mdi-20px"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboards -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+                <div data-i18n="Dashboards">Dashboards</div>
+              </a>
+              <ul class="menu-sub">
+                
+                <li class="menu-item active">
+                  <a href="index.html" class="menu-link">
+                    <div data-i18n="Analytics">Analytics</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a
+                    href="{% url "admins:visits" %}"
+                   
+                    class="menu-link">
+                    <div data-i18n="eCommerce">visits</div>
+                    
+                  </a>
+                </li>
+               
+              </ul>
+            </li>
+
+            <!-- Layouts -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-window-maximize"></i>
+                <div data-i18n="Layouts">user</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a
+                    href="{% url "admins:drivers" %}"
+                  
+                    class="menu-link">
+                    <div data-i18n="CRM">All driver</div>
+                    
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url "admins:add_driver" %}" class="menu-link">
+                    <div data-i18n="Without navbar">Add Driver</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url "admins:all_vendor" %}" class="menu-link">
+                    <div data-i18n="Container">All vendor</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url "admins:add_vendor" %}" class="menu-link">
+                    <div>Add Vendor</div>
+                  </a>
+                </li>
+                
+              </ul>
+              <ul class="menu-sub">
+                
+                
+               
+                <li class="menu-item">
+                  
+                  <a href="{% url 'users:logout' %}" class="menu-link">
+                    <div>logout </div>
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+           
+        </aside>
+        <!-- / Menu -->
+        <div class="layout-page">
+            <main class="table" id="customers_table">
+                <section class="table__header">
+                    <h1>All vendor</h1>
+                    <div class="input-group">
+                        <input type="search" placeholder="Search drivers...">
+                        
+                       
+                    </div>
+                    <div class="export__file">
+                        <label for="export-file" class="export__file-btn" title="Export File"></label>
+                        <input type="checkbox" id="export-file">
+                     
+                    </div>
+                </section>
+                <section class="table__body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> vendor <span class="icon-arrow">&UpArrow;</span></th>
+                                <th> phone number <span class="icon-arrow">&UpArrow;</span></th>
+                                <th> password <span class="icon-arrow">&UpArrow;</span></th>
+                                <th> city<span class="icon-arrow">&UpArrow;</span></th>
+                                <th> category <span class="icon-arrow">&UpArrow;</span></th>
+                                <th> created_at <span class="icon-arrow">&UpArrow;</span></th>
+                                <th> delete <span class="icon-arrow">&UpArrow;</span></th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {% for i in vendor %}
+                            <tr>
+                                <td>{{i.vendor}}</td>
+                                <td>  {{i.phone_number}}</td>
+                                <td> {{i.password}} </td>
+                                <td> {{i.city}} </td>
+                                <td> {{i.Sub_Category}} </td>
+                                <td> {{i.created_at}} </td>
+                                
+                                <td>
+                                    <a href="{% url 'admins:delete_vendor' i.id %}" class="delete-icon">❌</a>
+                                </td>
+                                {% comment %} <td>
+                                    <p class="status delivered">Delivered</p>
+                                </td> {% endcomment %}
+                              
+                            </tr>
+                            {% endfor %}
+                     
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+        
+        </div>
+       
+            <script src="{% static "templates_table/script.js" %}"></script>
+        
+       
+        
+  
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{% static "templates_admin/assets/vendor/libs/jquery/jquery.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/popper/popper.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/js/bootstrap.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/node-waves/node-waves.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/js/menu.js" %}"></script>
+
+    <!-- endbuild -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Vendors JS -->
+    <script src="{% static "templates_admin/assets/vendor/libs/apex-charts/apexcharts.js" %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static "templates_admin/assets/js/main.js" %}"></script>
+
+    <!-- Page JS -->
+    <script src="{% static "templates_admin/assets/js/dashboards-analytics.js" %}"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+   
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const period = this.getAttribute('data-period');
+                updateDashboardData(period);
+            });
+        });
+    });
+    
+    function updateDashboardData(period) {
+      fetch(`{% url "admins:admin_dashboard" %}?period=${period}`, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+      .then(response => response.json())
+      .then(data => {
+          // تحديث العناصر في HTML بالبيانات الجديدة
+          document.getElementById('active-vendors').textContent = ` ${data.active_vendor}`;
+          document.getElementById('visits-count').textContent = ` ${data.visits}`;
+          document.getElementById('discounts').textContent = ` ${data.discounts}`;
+          // تحديث أي عناصر HTML أخرى حسب البيانات
+      })
+      .catch(error => console.error('Error:', error));
+  }
+ 
+  </script>
+
+
+
+
+      
+    
+  </body>
+</html>
+
+

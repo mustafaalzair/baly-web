@@ -1,0 +1,582 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Dashboard - Analytics |Baly</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/fonts/materialdesignicons.css" %}" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/node-waves/node-waves.css" %}" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/css/core.css" %}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/css/theme-default.css" %}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/css/demo.css" %}" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" %}" />
+    <link rel="stylesheet" href="{% static "templates_admin/assets/vendor/libs/apex-charts/apex-charts.css" %}" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="{% static "templates_admin/assets/vendor/js/helpers.js" %}"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{% static "templates_admin/assets/js/config.js" %}"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link">
+              
+              <span class="app-brand-text demo menu-text fw-semibold ms-2">Baly captain</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+              <i class="mdi menu-toggle-icon d-xl-block align-middle mdi-20px"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboards -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+                <div data-i18n="Dashboards">Dashboards</div>
+              </a>
+              <ul class="menu-sub">
+                
+                <li class="menu-item active">
+                  <a href="index.html" class="menu-link">
+                    <div data-i18n="Analytics">Analytics</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a
+                    href="{% url "admins:visits" %}"
+                   
+                    class="menu-link">
+                    <div data-i18n="eCommerce">visits</div>
+                    
+                  </a>
+                </li>
+               
+              </ul>
+            </li>
+
+            <!-- Layouts -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-window-maximize"></i>
+                <div data-i18n="Layouts">user</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a
+                    href="{% url "admins:drivers" %}"
+                  
+                    class="menu-link">
+                    <div data-i18n="CRM">All driver</div>
+                    
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url "admins:add_driver" %}" class="menu-link">
+                    <div data-i18n="Without navbar">Add Driver</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url "admins:all_vendor" %}" class="menu-link">
+                    <div data-i18n="Container">All vendor</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url "admins:add_vendor" %}" class="menu-link">
+                    <div>Add Vendor</div>
+                  </a>
+                </li>
+                
+              </ul>
+              <ul class="menu-sub">
+                
+                
+               
+                <li class="menu-item">
+                  
+                  <a href="{% url 'users:logout' %}" class="menu-link">
+                    <div>logout </div>
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+           
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+        
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="row gy-4">
+                <!-- Congratulations card -->
+                <div class="col-md-12 col-lg-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title mb-1">Congratulations John! 🎉</h4>
+                      <p class="pb-0">Best seller of the month</p>
+                      <h4 class="text-primary mb-1">$42.8k</h4>
+                      <p class="mb-2 pb-1">78% of target 🚀</p>
+                      <a href="javascript:;" class="btn btn-sm btn-primary">View Sales</a>
+                    </div>
+                    <img
+                      src="../assets/img/icons/misc/triangle-light.png"
+                      class="scaleX-n1-rtl position-absolute bottom-0 end-0"
+                      width="166"
+                      alt="triangle background"
+                      data-app-light-img="icons/misc/triangle-light.png"
+                      data-app-dark-img="icons/misc/triangle-dark.png" />
+                    <img
+                      src="../assets/img/illustrations/trophy.png"
+                      class="scaleX-n1-rtl position-absolute bottom-0 end-0 me-4 mb-4 pb-2"
+                      width="83"
+                      alt="view sales" />
+                  </div>
+                </div>
+                <!--/ Congratulations card -->
+
+                <!-- Transactions -->
+                <div class="col-lg-8" >
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title m-0 me-2">Report</h5>
+                        <div class="dropdown">
+                          <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="mdi mdi-dots-vertical mdi-24px"></i>
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
+                              <a class="dropdown-item" href="#" data-period="Today">Today</a>
+                              <a class="dropdown-item" href="#" data-period="lastday">Last Day</a>
+                              <a class="dropdown-item" href="#" data-period="last7days">Last 7 Days</a>
+                              <a class="dropdown-item" href="#" data-period="Last Month">Last Month</a>
+                              
+                          </div>
+                      </div>
+                      
+                      </div>
+                      </div>
+                    <div class="card-body" id="card-body-content">
+                      <div class="row g-3">
+                        <div class="col-md-3 col-6">
+                          <div class="d-flex align-items-center">
+                            <div class="avatar">
+                              <div class="avatar-initial bg-primary rounded shadow">
+                                <i class="mdi mdi-trending-up mdi-24px"></i>
+                              </div>
+                            </div>
+                            <div class="ms-3" >
+                              <div class="small mb-1">active vendors </div>
+                              <h5 id="active-vendors" class="mb-0" ></h5>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <div class="d-flex align-items-center">
+                            <div class="avatar">
+                              <div class="avatar-initial bg-success rounded shadow">
+                                <i class="mdi mdi-account-outline mdi-24px"></i>
+                              </div>
+                            </div>
+                            <div class="ms-3">
+                              <div class="small mb-1">visits</div>
+                              <h5 id="visits-count"class="mb-0"></h5>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <div class="d-flex align-items-center">
+                            <div class="avatar">
+                              <div class="avatar-initial bg-warning rounded shadow">
+                                <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                              </div>
+                            </div>
+                            <div class="ms-3">
+                              <div class="small mb-1">discounts</div>
+                               <h5 class="mb-0" id="discounts"> </h5>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Transactions -->
+
+                <!-- Weekly Overview Chart -->
+                <div class="col-xl-4 col-md-6">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="mb-1">Weekly Overview</h5>
+                        
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div id="weeklyOverviewChart" data-chart-data="{{ chart_data }}"></div>
+                      <div class="mt-1 mt-md-3">
+                        <div class="d-flex align-items-center gap-3">
+                          
+                          <p class="mb-0">last 7 days visits</p>
+                        </div>
+                        <div class="d-grid mt-3 mt-md-4">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Weekly Overview Chart -->
+
+                <!-- Total Earnings -->
+                <div class="col-xl-4 col-md-6">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="card-title m-0 me-2">TOTAL VENDORS</h5>
+                      
+                    </div>
+                    <div class="card-body">
+                      <div class="mb-3 mt-md-3 mb-md-5">
+                        <div class="d-flex align-items-center">
+                          <h2 class="mb-0">{{total_vendors}}</h2>
+                          <span class="text-success ms-2 fw-medium">
+                            
+                            
+                          </span>
+                        </div>
+                        <small class="mt-1">This is total vendors for all sites</small>
+                      </div>
+                      <ul class="p-0 m-0">
+                        {% for vendors_city in vendor_city %}
+                        <li class="d-flex mb-4 pb-md-2">
+                         
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <h6 class="mb-0">{{vendors_city.city}}</h6>
+                              <small></small>
+                            </div>
+                            <div>
+                              <h6 class="mb-2">{{vendors_city.count}}</h6>
+                             
+                                
+                            </div>
+                          </div>
+                        </li>
+                        {% endfor %}
+                      
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Total Earnings -->
+
+                <!-- Four Cards -->
+                <div class="col-xl-4 col-md-6">
+                  <div class="row gy-4">
+                    <!-- Total Profit line chart -->
+                    <div class="col-sm-6">
+                      <div class="card h-100">
+                        <div class="card-header pb-0">
+                          <h4 class="mb-0">{{total_visits}}</h4>
+                        </div>
+                        <div class="card-body">
+                          <div id="totalProfitLineChart" class="mb-3"></div>
+                          <h6 class="text-center mb-0">Total visits</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <!--/ Total Profit line chart -->
+                    <!-- Total Profit Weekly Project -->
+                    <div class="col-sm-6">
+                      <div class="card h-100">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                          <div class="avatar">
+                            <div class="avatar-initial bg-secondary rounded-circle shadow">
+                              <i class="mdi mdi-poll mdi-24px"></i>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="card-body mt-mg-1">
+                          <h6 class="mb-2">new vendors</h6>
+                          <div class="d-flex flex-wrap align-items-center mb-2 pb-1">
+                            <h4 class="mb-0 me-2">{{new_vendors}}</h4>
+                            
+                          </div>
+                          <small>Last 30 days</small>
+                        </div>
+                      </div>
+                    </div>
+                    <!--/ Total Profit Weekly Project -->
+                    <!-- New Yearly Project -->
+                   
+                  </div>
+                </div>
+                <!--/ Total Earning -->
+
+                <!-- Sales by Countries -->
+                <div class="col-xl-4 col-md-6">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                      <h5 class="card-title m-0 me-2">Top 5 vendors </h5>
+                      <div class="dropdown">
+                        <button
+                          class="btn p-0"
+                          type="button"
+                          id="saleStatus"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false">
+                          <i class="mdi mdi-dots-vertical mdi-24px"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="saleStatus">
+                          <a class="dropdown-item" href="javascript:void(0);">Today</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last 7 Days</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                          <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                        {% for top in top_5_vendors %}
+                      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+                        <div class="d-flex align-items-center">
+                          <div class="avatar me-3">
+                            <div class="avatar-initial bg-label-success rounded-circle">1</div>
+                          </div>
+                          <div>
+                            <div class="d-flex align-items-center gap-1">
+                              <h6 class="mb-0">{{top.vendor_name}}</h6>
+                              
+                              <small class="text-success"></small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-end">
+                          <h6 class="mb-0">{{top.count}}</h6>
+                          <small>visits</small>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+                <!--/ Sales by Countries -->
+
+                <!-- Deposit / Withdraw -->
+                <div class="col-xl-8">
+                  <div class="card h-100">
+                    <div class="card-body row g-2">
+                      <div class="col-12 col-md-6 card-separator pe-0 pe-md-3">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+                          <h5 class="m-0 me-2">vendors category</h5>
+                        </div>
+                        <div class="pt-2">
+                          <ul class="p-0 m-0">
+                            <li class="d-flex mb-4 align-items-center pb-2">
+                              
+                              {% for vendors_category in vendors_category %}
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <h6 class="mb-0">{{vendors_category.Sub_Category}}</h6>
+                                </div>
+                                <h6 class="text-success mb-0">{{vendors_category.count}}</h6>
+                              </div>
+                            </li>
+                            <li class="d-flex mb-4 align-items-center pb-2">
+                            
+                              {% endfor %}
+                            
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+                <!-- Deposit / Withdraw -->
+
+                <!-- Data Tables -->
+                <div class="col-12">
+                  <div class="card">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead class="table-light">
+                          <tr>
+                            <th class="text-truncate">vendor</th>
+                            <th class="text-truncate">vendor_phone</th>
+                            <th class="text-truncate">subject</th>
+                            <th class="text-truncate">created_at</th>
+                            <th class="text-truncate">message</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for contacts in contact %}
+                          <tr>
+                            <td>
+                              <div class="d-flex align-items-center">
+                                
+                                <div>
+                                  <h6 class="mb-0 text-truncate">{{contacts.vendor_name}} </h6>
+                                  <small class="text-truncate"></small>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="text-truncate">{{contacts.phone_number}}</td>
+                            <td class="text-truncate">
+                              {{contacts.subject}}
+                            </td>
+                            <td class="text-truncate">{{contacts.created_at}}</td>
+                            <td class="text-truncate">{{contacts.message}}</td>
+                            
+                          </tr>
+                          {% endfor %}
+                          
+                        
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!--/ Data Tables -->
+              </div>
+            </div>
+            <!-- / Content -->
+
+        
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+  
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{% static "templates_admin/assets/vendor/libs/jquery/jquery.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/popper/popper.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/js/bootstrap.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/node-waves/node-waves.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" %}"></script>
+    <script src="{% static "templates_admin/assets/vendor/js/menu.js" %}"></script>
+
+    <!-- endbuild -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Vendors JS -->
+    <script src="{% static "templates_admin/assets/vendor/libs/apex-charts/apexcharts.js" %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static "templates_admin/assets/js/main.js" %}"></script>
+
+    <!-- Page JS -->
+    <script src="{% static "templates_admin/assets/js/dashboards-analytics.js" %}"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+   
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const period = this.getAttribute('data-period');
+                updateDashboardData(period);
+            });
+        });
+    });
+    
+    function updateDashboardData(period) {
+      fetch(`{% url "admins:admin_dashboard" %}?period=${period}`, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+      .then(response => response.json())
+      .then(data => {
+          // تحديث العناصر في HTML بالبيانات الجديدة
+          document.getElementById('active-vendors').textContent = ` ${data.active_vendor}`;
+          document.getElementById('visits-count').textContent = ` ${data.visits}`;
+          document.getElementById('discounts').textContent = ` ${data.discounts}`;
+          // تحديث أي عناصر HTML أخرى حسب البيانات
+      })
+      .catch(error => console.error('Error:', error));
+  }
+ 
+  </script>
+
+
+
+
+      
+    
+  </body>
+</html>
+
+
